@@ -1,45 +1,43 @@
 /*
-MATRIX LIB , for quick programming in C .
-Efficiency is not in consideration . 
+MATRIX LIB, for quick programming in C.
+Efficiency is not in consideration. 
 
-initiated when I have to translate a MATLAB file into C . 
+It was initiated when I have to translate a MATLAB file into C. 
 
-functions:
-create
-destroy
-copy
-get
-set
-transpose
-series
-add
-multiply
-scale
-repmat
-sort
-zeros
-ones
-eye
-solve ( built on CLAPACK )
-inv ( a wrapping of 'solve' for A*X=I)
-eig ( built on CLAPACK )
+Functions:
 
-MAT is the structure for my MATRIX.
-remember to destroy it after the work is completed.
+   * m_create
+   * m_destroy
+   * m_copy
+   * m_get
+   * m_set
+   * m_transpose
+   * m_series
+   * m_add
+   * m_multiply
+   * m_scale
+   * m_repmat
+   * m_sort
+   * m_zeros
+   * m_ones
+   * m_eye
+   * m_solve ( built on CLAPACK )
+   * m_inv ( a wrapping of 'solve' for A*X=I)
+   * m_eig ( built on CLAPACK )
 
-all parameter of MAT is in pointer style , 
-while returning MAT is not .
+MAT is the structure for my MATRIX. 
+Remember to destroy it after the work is completed.
 
-I simply use double as the element type .
+All parameters of MAT is in pointer style, while returning MAT is not.
 
-indices start from 0 .
+I simply use double as the element type.
 
-it's disturbing that the CLIENT should keep in mind that 
-MAT must be DESTROYED after using .
-space allocation of returning MAT and OUTPUT MAT structure is done by the functions themself , 
-while INPUT MAT should be properly created by the CLIENT .
+Indices start from 0.
 
-------------code by hplonline
+It's disturbing that the CLIENT should keep in mind that MAT must be 
+DESTROYED after using. Space allocation of returning MAT and OUTPUT 
+MAT structure is done by the functions themself, while INPUT MAT should 
+be properly created by the CLIENT.
 
 */
 

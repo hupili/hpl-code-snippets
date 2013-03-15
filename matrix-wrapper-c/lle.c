@@ -2,7 +2,7 @@
 #include <math.h>
 #include <windows.h>
 
-#include "../matrix_lib/matrix_lib.h"
+#include "matrix_lib.h"
 
 #define MAX_BUFFER 64000000
 
