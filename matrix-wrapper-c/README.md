@@ -32,6 +32,17 @@ I tested it under:
    * To pass library files to your linker, `#pragma` may not always work. 
    It is originally for VC6.0. 
    You may want to pass some compiler functions, like `-l` or `-L`.
+   * If you want to use this C port of LLE for production purpose, watch out. 
+   It is slow than the MATLAB companion. 
+   This is because I'm not traslating the MATLAB's `eigs` function, 
+   which can perform a partial computation of eign-decomposition. 
+   Since LLE only cares about the several smallest eigen values, 
+   the partial computation really matters. 
+   If you want to make a production grade translation, 
+   check out this 
+   [manual page](http://www.netlib.org/lapack/lug/node32.html#1678)
+   to find out whether there is a candidate 
+   for the MATLAB's `eigs` function. 
 
 ## Others 
 
