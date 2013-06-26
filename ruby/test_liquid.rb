@@ -1,11 +1,11 @@
-gem 'liquid', '=2.5.0'
+gem 'liquid', '=2.4.0'
 require 'Liquid.rb'
 body=<<eos
-Truncate {{text | truncate: 5}}
+Truncate {{text | truncate: 6}}
 eos
 @template = Liquid::Template.parse(body)
 puts @template.render("text" => "I'm testing Liquid")
-puts @template.render("text" => "测试测试测试测试")
+puts @template.render("text" => "乱石穿空，惊涛拍岸")
 
 body=<<eos
 Truncate {{text | truncatewords: 5}}
