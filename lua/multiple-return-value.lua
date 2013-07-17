@@ -3,6 +3,16 @@
 -- Someone in PyCN Google Group mentioned the multiple-return-value of Lua.
 -- I try to construct one example to check whether this is the pattern we want.
 
+-- Short conclusion:
+--    * The lua style of multi-value is what we are pursuing
+--    * When the last parameter of a function call is a function,
+--    all the returned values will be put in that position.
+--    * As a rule of thumb, one had better always write
+--    `h( (g( (f()) )) )`. The extra level of brackets will only
+--    keep the first return value.
+--    * This is different tradeoff from common LISP:
+--    single value is default; multi value should be explicitly binded before use.
+
 -- The first version of floor
 function floor1(n)
     return math.floor(n)
@@ -16,19 +26,22 @@ print ((floor1(10/3)) * (floor1(10/3)))
 print (floor1(10/3) * floor1(10/3))
 --> 9
 
-function myexp2(i)
+function myexp2(i, extra)
     print ("In myexp2, i=", i)
+    print ("In myexp2, extra=", extra)
     return math.pow(2,i)
 end
 
 -- Client 4: cascade function call. Careful
 print (myexp2((floor1(10/3))))
 --> In myexp2, i=   3
+--> In myexp2, extra=   nil
 --> 8
 
 -- Client 5: cascade function call. Not careful
 print (myexp2(floor1(10/3)))
 --> In myexp2, i=   3
+--> In myexp2, extra=   nil
 --> 8
 
 -- Upgrade: return the residual to give the client more info
@@ -59,9 +72,11 @@ print("Floored:", f, "Residual:", r)
 -- Client 4: cascade function call. Careful
 print (myexp2((floor2(10/3))))
 --> In myexp2, i=   3
+--> In myexp2, extra=   nil
 --> 8
 
 -- Client 5: cascade function call. Not careful
 print (myexp2(floor2(10/3)))
 --> In myexp2, i=   3
+--In myexp2, extra= 0.33333333333333
 --> 8
