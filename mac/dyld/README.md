@@ -1,5 +1,6 @@
+# dyld on Darwin
 
-Copied from [KOICHI TAMURA'S BLOG](http://koichitamura.blogspot.hk/2008/11/hooking-library-calls-on-mac.html).
+"inject-mine" is modified from [KOICHI TAMURA'S BLOG](http://koichitamura.blogspot.hk/2008/11/hooking-library-calls-on-mac.html).
 
 ## Object Lookup Tools
 
