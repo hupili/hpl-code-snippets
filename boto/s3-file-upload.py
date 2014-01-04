@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Refs:
 #    * http://boto.s3.amazonaws.com/s3_tut.html
 #
