@@ -1,0 +1,8 @@
+myMap = ["China": 1 , "India" : 2, "USA" : 3]
+println myMap;
+println myMap['China']
+// It's OK to reference nonexisting keys in groovy's dict
+println myMap['Hello'];
+//println ["Hello"]
+println myMap.containsKey('Hello')
+println myMap.containsKey('China')
